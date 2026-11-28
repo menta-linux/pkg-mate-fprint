@@ -1,0 +1,34 @@
+Source: mate-fprint
+Section: utils
+Priority: optional
+Maintainer: Menta Linux <packages@menta-linux.invalid>
+Build-Depends: appstream,
+               debhelper-compat (= 13),
+               desktop-file-utils,
+               gettext,
+               libglib2.0-dev (>= 2.56),
+               libgtk-3-dev (>= 3.22),
+               meson (>= 0.59),
+               pkgconf,
+               valac (>= 0.56),
+Standards-Version: 4.7.2
+Homepage: https://github.com/KeremSoke/mate-fprint
+Vcs-Browser: https://github.com/menta-linux/pkg-mate-fprint
+Vcs-Git: https://github.com/menta-linux/pkg-mate-fprint.git
+Rules-Requires-Root: no
+
+Package: mate-fprint
+Architecture: any
+Depends: fprintd,
+         libpam-fprintd,
+         libpam-runtime,
+         pkexec | policykit-1,
+         ${misc:Depends},
+         ${shlibs:Depends},
+Description: fingerprint login settings for the MATE desktop
+ A Vala and GTK 3 utility to enrol and delete fingerprints and to enable or
+ disable fingerprint authentication on the MATE desktop. It talks to fprintd
+ over D-Bus and toggles its PAM profile through PolicyKit and
+ pam-auth-update.
+ .
+ A fingerprint reader supported by libfprint is required.
